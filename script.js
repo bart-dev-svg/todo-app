@@ -2,13 +2,7 @@ const taskInput = document.getElementById("taskInput");
 const addButton = document.getElementById("addButton");
 const taskList = document.getElementById("taskList");
 
-addButton.addEventListener("click", function () {
-  const taskText = taskInput.value;
-
-  if (taskText === "") {
-    return;
-  }
-
+function createTask(taskText) {
   const item = document.createElement("li");
 
   const text = document.createElement("span");
@@ -21,7 +15,16 @@ addButton.addEventListener("click", function () {
   item.appendChild(text);
   item.appendChild(deleteButton);
   taskList.appendChild(item);
+}
 
+addButton.addEventListener("click", function () {
+  const taskText = taskInput.value;
+
+  if (taskText === "") {
+    return;
+  }
+
+  createTask(taskText);
   taskInput.value = "";
 });
 taskList.addEventListener("click", function (event) {

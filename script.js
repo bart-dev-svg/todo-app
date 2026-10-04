@@ -33,3 +33,8 @@ taskList.addEventListener("click", function (event) {
     event.target.parentElement.remove();
   }
 });
+taskInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    addButton.click();
+  }
+});
